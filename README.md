@@ -32,6 +32,7 @@ This repository contains a Playwright-powered test automation suite, designed fo
 Playwright/
 ├── tests/
 │   ├── example.spec.ts      # Sample test file
+│   ├── homepage.spec.ts     # Homepage test examples
 ├── playwright.config.ts     # Test runner config
 ├── package.json             # Dependencies
 ├── README.md
@@ -73,9 +74,14 @@ npx playwright show-report
 ```typescript
 import { test, expect } from '@playwright/test';
 
-test('homepage loads and has correct title', async ({ page }) => {
-  await page.goto('https://example.com');
-  await expect(page).toHaveTitle(/Example Domain/);
+test('homepage loads', async ({ page }) => {
+  await page.goto('https://playwright.dev');
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+test('homepage has correct heading', async ({ page }) => {
+  await page.goto('https://playwright.dev');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 });
 ```
 
@@ -117,6 +123,7 @@ npm init playwright@latest
 - ✅ TypeScript
 - ✅ Create tests in `tests/`
 - ✅ Add GitHub Actions workflow (if asked)
+- ✅ Install Playwright browsers
 
 Then commit everything:
 

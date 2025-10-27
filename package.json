@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "> **Playwright enables reliable end-to-end testing for modern web apps across all modern browsers.**",
   "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {},
   "repository": {
     "type": "git",
